@@ -1,4 +1,4 @@
-package com.java.Random;
+package com.java.pepcoding.recursion;
 
 import java.util.Scanner;
 

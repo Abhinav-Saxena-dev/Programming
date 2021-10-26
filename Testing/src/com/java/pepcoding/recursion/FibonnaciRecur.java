@@ -1,4 +1,4 @@
-package com.java.Random;
+package com.java.pepcoding.recursion;
 
 public class FibonnaciRecur {
     public static void main(String... args) {

@@ -1,4 +1,4 @@
-package com.java.LinkedList;
+package com.java.SinglyLinkedList;
 
 public class Main {
     public static class Node {
@@ -87,7 +87,7 @@ public class Main {
             else if(index == 0){
                 addFirst(val);
             }
-            else if(index == size){
+            else if(index == size - 1){
                 addLast(val);
             }
             else{
@@ -100,12 +100,48 @@ public class Main {
             }
             size++;
         }
+        public void removeLast(){
+            Node temp = head;
+            if( size == 0 ) {
+                System.out.println("List is empty");
+                return;
+            }
+            else if( size == 1 ){
+                head = tail = null;
+            }
+            else{
+                for(int i = 0; i < size - 2; i++){
+                    temp = temp.next;
+                }
+                temp.next = null;
+                tail = temp;
+            }
+            size--;
+        }
         public void removeAt(int index){
             Node temp = head;
             if(size == 0){
                 System.out.println("List is empty");
+                return;
             }
-
+            else if(index > size || index < 0){
+                System.out.println("Invalid index");
+                return;
+            }
+            else if(index == 0){
+                removeFirst();
+            }
+            else if(index == size - 1){
+                removeLast();
+            }
+            else{
+                for(int i = 0; i < index - 1; i++){
+                    temp = temp.next;
+                }
+                Node nextIndex = (temp.next).next;
+                temp.next = nextIndex;
+            }
+            size--;
         }
     }
 
@@ -123,6 +159,8 @@ public class Main {
         ob.display();
         System.out.println(ob.getValue(-1));
         ob.addAt(2, 10);
+        ob.display();
+        ob.removeAt(1);
         ob.display();
     }
 }
