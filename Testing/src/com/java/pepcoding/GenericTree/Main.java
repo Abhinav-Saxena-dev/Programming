@@ -1,8 +1,8 @@
 package com.java.pepcoding.GenericTree;
 
-import java.sql.SQLOutput;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Queue;
 import java.util.Stack;
 
 public class Main {
@@ -72,6 +72,28 @@ public class Main {
             h++;
             return h;
         }
+
+        public void traverseLevelOrder(Node node){
+            Queue<Node> q = new ArrayDeque<>();
+            q.add(node);
+            while(q.size() > 0){
+                node = q.remove();
+                System.out.print(node.data + " ");
+                for(Node child : node.children){
+                    q.add(child);
+                }
+            }
+            System.out.println(".");
+        }
+        public void traversalTree(Node node){
+            System.out.println("NODE PRE " + node.data);
+            for(Node child : node.children){
+                System.out.println("EDGE PRE " + node.data + " --- " + child.data);
+                traversalTree(child);
+                System.out.println("EDGE POST " + node.data + " --- " + child.data);
+            }
+            System.out.println("NODE POST " + node.data);
+        }
     }
 
 
@@ -83,5 +105,7 @@ public class Main {
         System.out.println("Size -> " + tree.sizeTree(tree.root));
         System.out.println("Max -> " + tree.findMax(tree.root));
         System.out.println("Height -> " + tree.heightTree(tree.root));
+        tree.traversalTree(tree.root);
+        tree.traverseLevelOrder(tree.root);
     }
 }

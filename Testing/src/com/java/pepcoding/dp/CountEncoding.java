@@ -16,7 +16,12 @@ public class CountEncoding {
                 dp[i] = dp[i - 1];
             }
             else if(str.charAt(i-1) != '0' && str.charAt(i) == '0'){
-                dp[i] = i >= 2 ? dp[i-2] : dp[0];
+                if(str.charAt(i-1) == '1' || str.charAt(i-1) == '2') {
+                    dp[i] = i >= 2 ? dp[i - 2] : dp[0];
+                }
+                else{
+                    dp[i]  = 0;
+                }
             }
             else{
              dp[i] += dp[i-1];
