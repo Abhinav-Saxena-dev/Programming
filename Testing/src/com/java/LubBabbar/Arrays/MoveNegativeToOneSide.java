@@ -10,15 +10,26 @@ public class MoveNegativeToOneSide {
         for(int i = 0; i < n; i++){
             a[i] = sc.nextInt();
         }
-        int j = 0, temp;
-        for (int i = 0; i < n; i++) {
-            if (a[i] < 0) {
-                if (i != j) {
-                    temp = a[i];
-                    a[i] = a[j];
-                    a[j] = temp;
-                }
-                j++;
+        int i = 0;
+        int j = n - 1;
+        int temp = 0;
+        while(i <= j){
+            if(a[i] < 0 && a[j] < 0){
+                j--;
+            }
+            else if(a[i] < 0 && a[j] > 0){
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+                i++;
+                j--;
+            }
+            else if(a[i] > 0 && a[j] > 0){
+                i++;
+            }
+            else{
+                i++;
+                j--;
             }
         }
         for(int s : a){
