@@ -23,18 +23,18 @@ public class UnionAndIntersection {
 
         while(i < n && j < m){
 
-            while(a[i] > b[j]){
+            if(a[i] < b[j]){
+                i++;
                 k++;
-                j++;
             }
-            if(a[i] == b[j]){
+            else if(a[i] > b[j]){
+                j++;
                 k++;
+            }
+            else{
                 i++;
                 j++;
-            }
-            while(a[i] < b[j]){
                 k++;
-                i++;
             }
         }
 
