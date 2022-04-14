@@ -54,7 +54,7 @@ enum test {
 
 public class Main {
 
-    /*  enum test {     // Enum can also be defined inside of a class.
+    /*  enum test {     // Enum can also be defined inside a class.
             APPLE,
             SAMSUNG,
             HTC;
@@ -62,7 +62,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        System.out.println(test.APPLE);
+//      System.out.println(test.APPLE);
 
         test en = test.APPLE;
 
